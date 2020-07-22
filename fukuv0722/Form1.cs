@@ -12,9 +12,50 @@ namespace fukuv0722
 {
     public partial class Form1 : Form
     {
+        int vx = 0;
+        int vy = 0;
+        int speed = 3;
+
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            vx = -1;
+            vy = 0;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            vx = 0;
+            vy = 1;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            vx = 1;
+            vy = 0;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            vx = 0;
+            vy = -1;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label1.Top += vx * speed;
+            label1.Left += vy * speed;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            //止まる
+            vx = 0;
+            vy = 0;
         }
     }
 }
